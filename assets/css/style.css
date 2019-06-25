@@ -8,9 +8,26 @@ div {
     text-align: center;
 }
 
+h1 {
+    font-weight: bold;
+    color: #19485A;
+}
+
+h3 {
+    color: #8F3523;
+}
+
+input, label {
+    margin-right: 10px;
+}
+
 #mainBody {
     background-color: #f2e7e1;
     margin: 0 auto;
     width: 75%;
     padding: 10px;
+}
+
+.question {
+    margin-bottom: 20px;
 }
