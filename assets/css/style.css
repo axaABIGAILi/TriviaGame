@@ -1,0 +1,16 @@
+body {
+    background-image: url(../images/artmuseum.jpg);
+    background-size: cover;
+    padding: 10px;
+}
+
+div {
+    text-align: center;
+}
+
+#mainBody {
+    background-color: #f2e7e1;
+    margin: 0 auto;
+    width: 75%;
+    padding: 10px;
+}
