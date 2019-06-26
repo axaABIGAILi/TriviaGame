@@ -70,5 +70,25 @@ function makeQuiz () {
 
 makeQuiz();
 
+// declare variable "intervalID"
+var intervalID;
+// 60 seconds time declared as a variable
+var seconds = 60;
+// create timer function for a minute
+function timer() {
+    clearInterval(intervalID);
+    intervalID = setInterval(decrement, 1000);
+}
+function decrement(){
+        seconds--;
+        $("#timer").html(seconds);
+        if (seconds === 0) {
+            clearInterval(intervalID);
+            alert("Time's up!")
+        }
+}
+
+timer();
+
 // close doc.ready
 });

@@ -28,6 +28,12 @@ input, label {
     padding: 10px;
 }
 
+#timer {
+    background-color: #8F3523;
+    color: #f2e7e1;
+    font-size: 22px;
+}
+
 .question {
     margin-bottom: 20px;
 }
