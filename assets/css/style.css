@@ -34,6 +34,13 @@ input, label {
     font-size: 22px;
 }
 
+#score {
+    border-width: 3px;
+    border-style: solid;
+    border-color: #19485A;
+    padding: 5px;
+}
+
 .question {
     margin-bottom: 20px;
 }

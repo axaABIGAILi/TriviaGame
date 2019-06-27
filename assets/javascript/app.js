@@ -86,6 +86,7 @@ function decrement(){
             clearInterval(intervalID);
             alert("Time's up!");
             checkScore();
+            displayScore();
         }
 }
 
@@ -114,10 +115,17 @@ for (var l=0; l < quizQuestions.length; l++){
 
 // function to display the score when it's tallied
 function displayScore () {
+    var scoreDiv = $('#mainBody').append('<div id="score">');
+
+    $(scoreDiv).html('<div id="score"><p><b>Correct:</b> '+correct+'</p><p><b>Incorrect:</b> '+incorrect+'</p></div>');
+    var resetButton = $("#score").append('<button type="button">Reset</button>')
+   
+    // reset button reloads the page, therefore restarting/refreshing everything
+    $(resetButton).on("click", function(){
+        location.reload();
+    });
 
 }
-
-
 
 // close doc.ready
 });
