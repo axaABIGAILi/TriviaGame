@@ -93,6 +93,14 @@ function decrement(){
 // run timer
 timer();
 
+// button to finish early
+$('#finished').on('click', function(){
+        clearInterval(intervalID);
+        alert('Finished already?');
+        checkScore();
+        displayScore();
+    })
+
 // create method to compare selected answers to correct answers
 var selectedAns;
 //declare score variables
@@ -118,6 +126,7 @@ function displayScore () {
     // hide the questions and timer
     $('#questions').hide();
     $('#timer').hide();
+    $('#finished').hide();
 
     // create DIV to display 
     var scoreDiv = $('<div id="score"></div>');
@@ -130,6 +139,7 @@ function displayScore () {
     // reset button hides scores, resets variables, and show questions
     $("button").on("click", function(){
         $('#questions').show();
+        $('#finished').show();
         $('#timer').show();
         $(scoreDiv).hide();
         correct = 0;
