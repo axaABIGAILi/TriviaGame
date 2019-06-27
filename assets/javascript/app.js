@@ -115,14 +115,28 @@ for (var l=0; l < quizQuestions.length; l++){
 
 // function to display the score when it's tallied
 function displayScore () {
-    var scoreDiv = $('#mainBody').append('<div id="score">');
+    // hide the questions and timer
+    $('#questions').hide();
+    $('#timer').hide();
 
-    $(scoreDiv).html('<div id="score"><p><b>Correct:</b> '+correct+'</p><p><b>Incorrect:</b> '+incorrect+'</p></div>');
-    var resetButton = $("#score").append('<button type="button">Reset</button>')
-   
-    // reset button reloads the page, therefore restarting/refreshing everything
-    $(resetButton).on("click", function(){
-        location.reload();
+    // create DIV to display 
+    var scoreDiv = $('<div id="score"></div>');
+    $("#mainBody").append(scoreDiv);
+    // populate scoreDiv with score text
+    $(scoreDiv).append('<p><b>Correct:</b> '+correct+'</p><p><b>Incorrect:</b> '+incorrect+'</p>');
+
+    // create reset button
+    var resetButton = $(scoreDiv).append('<button type="button">Reset</button>');
+    // reset button hides scores, resets variables, and show questions
+    $("button").on("click", function(){
+        $('#questions').show();
+        $('#timer').show();
+        $(scoreDiv).hide();
+        correct = 0;
+        incorrect = 0;
+        // runs the timer again
+        seconds = 60;
+        timer();
     });
 
 }
