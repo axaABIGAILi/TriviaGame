@@ -1,16 +1,26 @@
+@import url('https://fonts.googleapis.com/css?family=EB+Garamond|Vollkorn+SC&display=swap');
 body {
     background-image: url(../images/artmuseum.jpg);
     background-size: cover;
     padding: 10px;
+    font-family: 'EB Garamond', serif;
 }
 
 div {
     text-align: center;
 }
 
+img {
+    width: 150px;
+    height: auto;
+    margin: 5px;
+    vertical-align: middle;
+}
+
 h1 {
     font-weight: bold;
     color: #19485A;
+    font-family: 'Vollkorn SC', serif;
 }
 
 h3 {
