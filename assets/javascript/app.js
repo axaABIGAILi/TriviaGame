@@ -1,7 +1,7 @@
 //document.ready
 $(document).ready(function () { 
 
-// create an object with quiz questions & answers
+// create an array w/ objects for quiz questions & answers
 var quizQuestions = [{
         q: 'Who is the painter responsible for the famous Mona Lisa?',
         answers: [
@@ -10,7 +10,7 @@ var quizQuestions = [{
             'Michaelangelo',
             'Leondardo Da Vinci',
         ],
-        correct: 'd'
+        correct: 'Leonardo Da Vinci'
     },
     {   q: 'Salvador Dali is famous for ushering in what artistic movement?',
         answers: [
@@ -19,7 +19,7 @@ var quizQuestions = [{
             'Cubism',
             'Vandalism',
         ],
-        correct: 'b'
+        correct: 'Surrealism'
     },
     {   q: 'Which artist is famous for the self-portrait of himself in which he has a bandaged ear?',
         answers: [
@@ -28,7 +28,7 @@ var quizQuestions = [{
             'John Lennon',
             'Claude Monet',
         ],
-        correct: 'a'
+        correct: 'Vincent Van Gogh'
     },
     {   q: 'Andy Warhol is known for his use of...',
         answers: [
@@ -37,7 +37,7 @@ var quizQuestions = [{
             'Repitition and patterns',
             'All of the above',
         ],
-        correct: 'd'
+        correct: 'All of the above'
 
     },
     {   q: 'True or false: MC Escher was a dutch rapper who dropped sick beats in the clubs before discovering his love for mathematically inspired art.',
@@ -45,7 +45,7 @@ var quizQuestions = [{
             'True',
             'False',
         ],
-        correct: 'b'
+        correct: 'False'
     }
 ];
 
@@ -62,7 +62,7 @@ function makeQuiz () {
         $('#q'+i).append('<h3>' + quizQuestions[i].q + '</h3>');
         // loop to append each individual answer
         for (var j=0; j < quizQuestions[i].answers.length ; j++) {
-        $('#q'+i).append('<input type="radio" value="' + quizQuestions[i].answers[j] + '" name=" ' + quizQuestions[i].answers[i] + ' " />' + '<label>' + quizQuestions[i].answers[j] + '</label>' + ' ');
+        $('#q'+i).append('<input type="radio" value="' + quizQuestions[i].answers[j] + '" name="' + quizQuestions[i].answers[i] + '" />' + '<label>' + quizQuestions[i].answers[j] + '</label>' + ' ');
         }
 
     }
@@ -84,11 +84,40 @@ function decrement(){
         $("#timer").html(seconds);
         if (seconds === 0) {
             clearInterval(intervalID);
-            alert("Time's up!")
+            alert("Time's up!");
+            checkScore();
         }
 }
 
+// run timer
 timer();
+
+// create method to compare selected answers to correct answers
+var selectedAns;
+//declare score variables
+var correct = 0;
+var incorrect = 0;
+
+function checkScore () {
+for (var l=0; l < quizQuestions.length; l++){
+    selectedAns = $("input[name='"+quizQuestions[l].answers[l]+"']:checked").val();
+        // if statement to compare selected w/ answr
+        if (selectedAns === quizQuestions[l].correct) {
+            correct++;
+        } else {
+            incorrect++;
+        }
+    console.log(correct);
+    console.log(incorrect);
+}
+}
+
+// function to display the score when it's tallied
+function displayScore () {
+
+}
+
+
 
 // close doc.ready
 });
